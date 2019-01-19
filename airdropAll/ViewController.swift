@@ -22,6 +22,17 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBAction func sender(_ sender: Any) {
+        print("hi")
+        let text:[NSAttributedString] = [NSAttributedString(string: "Hello")]
+        
+        let service : NSSharingService = NSSharingService(named: .composeMessage)!
+        
+//        service.delegate = self as! NSSharingServiceDelegate
+        print(service.canPerform(withItems: text))
+        service.perform(withItems: text)
+        
+    }
+    
 }
 
